@@ -1,0 +1,43 @@
+.news-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 800px;
+    margin: auto;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: box-shadow 0.2s ease;
+}
+
+.news-thumbnail {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-link {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.news-date {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #555;
+}

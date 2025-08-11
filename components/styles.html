@@ -1,0 +1,75 @@
+<style>
+  *,
+  body,
+  p { 
+    color: #06447e !important; 
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+  }
+
+  .navbar-toggler { 
+    width: 50px; 
+    height: 50px; 
+    padding: 0; 
+    border-radius: 50%; 
+    transition: 0.3s ease-in-out; 
+    flex-shrink: 0; 
+  }
+  .navbar-toggler:focus { 
+    box-shadow: none; 
+  }
+
+  @media screen and (max-width: 991px) {
+    header { 
+      padding-top: 10px; 
+    }
+    .navbar-collapse {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #ffffff;
+      color: #06447e;
+      width: 215px;
+      height: 100%;
+      z-index: 9999;
+      padding: 25px;
+      transform: translateX(-215px);
+      transition: 0.5s ease-in-out;
+    }
+    .navbar-collapse.show { 
+      transform: translateX(0px); 
+    }
+    .nav-overlay {
+      position: absolute;
+      background: #3a53987d;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      transform: translateX(-100vw);
+      transition: 0.5s ease-in-out;
+      display: block;
+    }
+    .nav-overlay.active { 
+      transform: translateX(0); 
+    }
+  }
+
+  #submitButton {
+    background-color: #06447e;
+    color: white !important;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #submitButton:hover { 
+    background-color: #6093c2; 
+  }
+
+  .navbar-nav .nav-item .nav-link.active {
+    text-decoration: underline !important;
+    font-weight: bold !important;
+  }
+</style>

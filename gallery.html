@@ -1,0 +1,98 @@
+<!-- base.html (static-friendly) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHIFT</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script> 
+
+  <!--Bootstrap CSS CDN File-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  
+  
+  <!--Common Styles-->
+  <div id="styles-placeholder"></div>
+  <!-- Page specific styles can go here -->
+  
+</head>
+<body>
+ <!--Header-->
+  <div id="header-placeholder"></div>
+
+  <!--Navbar-->
+  <div id="navbar-placeholder"></div>
+
+  <!-- Main content will be inserted here -->
+  <main>
+    
+<section class="container py-5">
+    <div>
+        <!-- <h1 class="text-center">GALLERY</h1> -->
+        <div id="imageGalleryCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/static/images/1000066691.jpg" class="d-block w-100 carousel-img" alt="Field_Participant01">
+                </div>
+                <div class="carousel-item">
+                    <img src="static/images/excerpt1.png" class="d-block w-100 carousel-img" alt="excerpt1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/user00_cycling.jpeg" class="d-block w-100 carousel-img" alt="Field_Participant00">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/excerpt2.png" class="d-block w-100 carousel-img" alt="excerpt2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/UCD_SHIFT.JPG" class="d-block w-100 carousel-img" alt="shift-team">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/excerpt3.png" class="d-block w-100 carousel-img" alt="excerpt3">
+                </div>
+                <div class="carousel-item">
+                    <img src="/static/images/school-kids-on-bike.png" class="d-block w-100 carousel-img" alt="Kids on bike">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#imageGalleryCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#imageGalleryCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Fixed size for carousel with priority */
+#imageGalleryCarousel {
+    max-width: 800px !important; /* Set maximum width for the carousel and ensure it's applied */
+    margin: 0 auto !important;  /* Center the carousel and prevent overrides */
+}
+
+.carousel-img {
+    height: 500px !important; /* Fixed height for all carousel images */
+    object-fit: cover !important; /* Ensures images are cropped proportionally */
+}
+
+/* Additional specificity to prevent overrides */
+#imageGalleryCarousel .carousel-inner .carousel-item img {
+    height: 450px !important; /* Enforce fixed height with specificity */
+    object-fit: cover !important; /* Ensure proper cropping is applied */
+}
+</style>
+
+  </main>
+
+  <!--Footer-->
+  <div id="footer-placeholder"></div>
+  
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/main.js"></script>
+  
+</body>
+</html>
