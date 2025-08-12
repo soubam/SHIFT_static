@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-            fetch('/update_reason', {
+            fetch('./update_reason', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

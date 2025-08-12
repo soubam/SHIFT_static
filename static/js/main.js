@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Add this to your existing main.js
 async function loadNavbar() {
   try {
-    const response = await fetch('/components/navbar.html');
+    const response = await fetch('./components/navbar.html');
     const html = await response.text();
     document.getElementById('navbar-placeholder').innerHTML = html;
     
@@ -83,7 +83,7 @@ async function loadNavbar() {
 // Add these functions to your existing main.js
 async function loadFooter() {
   try {
-    const response = await fetch('/components/footer.html');
+    const response = await fetch('./components/footer.html');
     const html = await response.text();
     document.getElementById('footer-placeholder').innerHTML = html;
   } catch (error) {
@@ -93,7 +93,7 @@ async function loadFooter() {
 
 async function loadHeader() {
   try {
-    const response = await fetch('/components/header.html');
+    const response = await fetch('./components/header.html');
     const html = await response.text();
     document.getElementById('header-placeholder').innerHTML = html;
   } catch (error) {
@@ -103,7 +103,7 @@ async function loadHeader() {
 
 async function loadStyles() {
   try {
-    const response = await fetch('/components/styles.html');
+    const response = await fetch('./components/styles.html');
     const html = await response.text();
     document.getElementById('styles-placeholder').innerHTML = html;
   } catch (error) {
