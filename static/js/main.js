@@ -109,3 +109,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadFooter()
   ]);
 });
+
+$(document).ready(function() {
+    // Load components
+    $("#header-placeholder").load("/SHIFT_static/components/header.html");
+    $("#navbar-placeholder").load("/SHIFT_static/components/navbar.html");
+    $("#footer-placeholder").load("/SHIFT_static/components/footer.html");
+    $("#styles-placeholder").load("/SHIFT_static/components/styles.html");
+
+    // Handle active page in navigation
+    const currentPage = window.location.pathname;
+    $(`.nav-link[href="${currentPage}"]`).addClass('active');
+});
