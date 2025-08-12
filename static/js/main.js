@@ -57,9 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
 // Add this to your existing main.js
 async function loadNavbar() {
   try {
-    const response = await fetch('./components/navbar.html');
+    // Determine the correct path based on current location
+    const currentPath = window.location.pathname;
+    const isInSubdirectory = currentPath.includes('/events/') || currentPath.includes('/components/');
+    const componentPath = isInSubdirectory ? '../components/navbar.html' : './components/navbar.html';
+    
+    const response = await fetch(componentPath);
     const html = await response.text();
     document.getElementById('navbar-placeholder').innerHTML = html;
+    
+    // Fix navigation links based on current location
+    fixNavigationLinks();
     
     // Set active nav link after navbar is loaded
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -80,12 +88,52 @@ async function loadNavbar() {
   }
 }
 
+// Function to fix navigation links based on current location
+function fixNavigationLinks() {
+  const currentPath = window.location.pathname;
+  const isInSubdirectory = currentPath.includes('/events/') || currentPath.includes('/components/');
+  
+  if (isInSubdirectory) {
+    // Update all navigation links to go back to root
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('http') && !href.startsWith('#')) {
+        link.href = `../${href.replace('./', '')}`;
+      }
+    });
+  }
+}
+
+// Function to fix image paths in components
+function fixImagePaths() {
+  const currentPath = window.location.pathname;
+  const isInSubdirectory = currentPath.includes('/events/') || currentPath.includes('/components/');
+  
+  if (isInSubdirectory) {
+    // Update all image paths to go back to root
+    document.querySelectorAll('img').forEach(img => {
+      const src = img.getAttribute('src');
+      if (src && src.startsWith('./static/')) {
+        img.src = `../${src.replace('./', '')}`;
+      }
+    });
+  }
+}
+
 // Add these functions to your existing main.js
 async function loadFooter() {
   try {
-    const response = await fetch('./components/footer.html');
+    // Determine the correct path based on current location
+    const currentPath = window.location.pathname;
+    const isInSubdirectory = currentPath.includes('/events/') || currentPath.includes('/components/');
+    const componentPath = isInSubdirectory ? '../components/footer.html' : './components/footer.html';
+    
+    const response = await fetch(componentPath);
     const html = await response.text();
     document.getElementById('footer-placeholder').innerHTML = html;
+    
+    // Fix image paths after loading footer
+    fixImagePaths();
   } catch (error) {
     console.error('Error loading footer:', error);
   }
@@ -93,9 +141,17 @@ async function loadFooter() {
 
 async function loadHeader() {
   try {
-    const response = await fetch('./components/header.html');
+    // Determine the correct path based on current location
+    const currentPath = window.location.pathname;
+    const isInSubdirectory = currentPath.includes('/events/') || currentPath.includes('/components/');
+    const componentPath = isInSubdirectory ? '../components/header.html' : './components/header.html';
+    
+    const response = await fetch(componentPath);
     const html = await response.text();
     document.getElementById('header-placeholder').innerHTML = html;
+    
+    // Fix image paths after loading header
+    fixImagePaths();
   } catch (error) {
     console.error('Error loading header:', error);
   }
@@ -103,7 +159,12 @@ async function loadHeader() {
 
 async function loadStyles() {
   try {
-    const response = await fetch('./components/styles.html');
+    // Determine the correct path based on current location
+    const currentPath = window.location.pathname;
+    const isInSubdirectory = currentPath.includes('/events/') || currentPath.includes('/components/');
+    const componentPath = isInSubdirectory ? '../components/styles.html' : './components/styles.html';
+    
+    const response = await fetch(componentPath);
     const html = await response.text();
     document.getElementById('styles-placeholder').innerHTML = html;
   } catch (error) {
