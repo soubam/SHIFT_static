@@ -12,35 +12,22 @@ async function loadComponent(componentName) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', async () => {
-  await Promise.all([
-    loadComponent('styles'),
-    loadComponent('header'),
-    loadComponent('navbar'),
-    loadComponent('footer')
-  ]);
-  
-  // Update active nav link
-  const currentPath = window.location.pathname;
-  const pageName = currentPath.split('/').pop() || 'index.html';
-  document.getElementById(navLinks[pageName])?.classList.add('active');
+document.addEventListener('DOMContentLoaded', function() {
+    // Load components using jQuery for better compatibility
+    $("#header-placeholder").load(`${basePath}/components/header.html`);
+    $("#navbar-placeholder").load(`${basePath}/components/navbar.html`);
+    $("#footer-placeholder").load(`${basePath}/components/footer.html`);
+    $("#styles-placeholder").load(`${basePath}/components/styles.html`);
 });
 
-// Navigation active state
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-const navLinks = {
-  'index.html': 'home-link',
-  'about.html': 'about-link',
-  'user_guide.html': 'user-guide',
-  'news.html': 'news-link',
-  'gallery.html': 'gallery-link',
-  'contact.html': 'contact-link'
-};
-
-// Set active class
-if (navLinks[currentPage]) {
-  document.getElementById(navLinks[currentPage])?.classList.add('active');
-}
+// Handle navigation active state
+$(document).ready(function() {
+    const currentPath = window.location.pathname;
+    const pageName = currentPath.split('/').pop() || 'index.html';
+    
+    // Add active class to current page link
+    $(`a[href$="${pageName}"]`).addClass('active');
+});
 
 // Mobile menu handling
 const button = document.querySelector(".navbar-toggler");
