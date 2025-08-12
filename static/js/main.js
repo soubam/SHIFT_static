@@ -12,8 +12,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Set active class
   if (navLinks[currentPage]) {
-    document.getElementById(navLinks[currentPage])?.classList.add('active');
+    const activeLink = document.getElementById(navLinks[currentPage]);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
   }
+
+  // Ensure links work from any directory level
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && !href.startsWith('http')) {
+      link.href = `./${href.split('/').pop()}`;
+    }
+  });
 
   // Mobile menu handling
   const button = document.querySelector(".navbar-toggler");
